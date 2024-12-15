@@ -7,7 +7,8 @@
   
   /* Body Styling */
   body {
-      background: linear-gradient(#e66465, #9198e5);
+      background-image: url(https://images.unsplash.com/photo-1557683316-973673baf926?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3IlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww);
+
     font-family: 'Montserrat', sans-serif;
     color: #333;
   }
@@ -88,7 +89,8 @@
   /* Services Section Styling */
   
   .services-section {
-    padding: 200px 40px;
+    padding: 50px 40px;
+	padding-top: 70px;
     background-color: rgba(255, 255, 255, 0.95);
     text-align: center;
     margin-top: 20px;
@@ -137,7 +139,7 @@
   }
   
   #photogallery{
-      padding: 200px 40px;
+      padding: 0px 40px;
   }
   .photo-gallery {
     padding: 60px 10px;
@@ -147,7 +149,7 @@
   .photo-gallery h2 {
     font-size: 2em;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .slider {
@@ -428,261 +430,230 @@
               margin-top: 20px;
           }
   /* Photo Gallery Section */
-  .photo-gallery-section {
-      text-align: center;
-      margin: 20px 0;
-  }
-  
-  .container {
-      width: 100%;
-      max-width: 800px;
-      height: 300px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  }
-  
-  .cards {
-      position: relative;
-      width: 100%;
-      height: 100%;
-  }
-  
-  .card {
-      position: absolute;
-      width: 60%;
-      height: 100%;
-      left: 0;
-      right: 0;
-      margin: auto;
-      transition: transform 0.4s ease;
-      cursor: pointer;
-  }
-  
-  .card img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-  }
-  
-  /* Carousel Transitions */
-  #item-1:checked ~ .cards #photo-5,
-  #item-2:checked ~ .cards #photo-1,
-  #item-3:checked ~ .cards #photo-2,
-  #item-4:checked ~ .cards #photo-3,
-  #item-5:checked ~ .cards #photo-4 {
-      transform: translateX(-40%) scale(0.8);
-      opacity: 0.4;
-      z-index: 0;
-  }
-  
-  #item-1:checked ~ .cards #photo-2,
-  #item-2:checked ~ .cards #photo-3,
-  #item-3:checked ~ .cards #photo-4,
-  #item-4:checked ~ .cards #photo-5,
-  #item-5:checked ~ .cards #photo-1 {
-      transform: translateX(40%) scale(0.8);
-      opacity: 0.4;
-      z-index: 0;
-  }
-  
-  #item-1:checked ~ .cards #photo-1,
-  #item-2:checked ~ .cards #photo-2,
-  #item-3:checked ~ .cards #photo-3,
-  #item-4:checked ~ .cards #photo-4,
-  #item-5:checked ~ .cards #photo-5 {
-      transform: translateX(0) scale(1);
-      opacity: 1;
-   z-index: 1;
-  }
-  
-  #family{
-      padding: 150px 40px;
-  }
-  .family-section {
-      padding: 40px 20px;
-      background-size: cover;
-      color: white; /* Ensure text is visible on the dark background */
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Space between the sections */
-  }
-  
-  .family-section .left-section {
-      flex: 1; /* Take 1 part of the total width */
-      text-align: left; /* Align heading to the left */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-  }
-  
-  .family-section h2 {
-      font-size: 2.5em;
-      font-family: 'Playfair Display', serif;
-      color: #ffffff;
-  text-align: center;
-  }
-  
-  .family-section .right-section {
-      flex: 2; /* Take 2 parts of the total width */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-  }
-  
-  .family-member {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-  }
-  
-  .family-member img {
-      width: 260px;
-      height: 320px;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for more attraction */
-      object-fit: cover;
-  }
-  .member-details {
-      text-align: left;
-  }
-  
-  .member-details h3 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      color: #4CAF50;
-  font-family: 'Playfair Display', serif;
-  }
-  
-  .member-details h4 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      font-family: 'Playfair Display', serif;
-  }
-  
-  .member-details p {
-      font-size: 1em;
-      line-height: 1.5;
-      color: #dde7d3;
-  }
-  
-  
-  .margin-button {
-      background-color: transparent;
-      color: #4CAF50;
-      border: none;
-      font-size: 2em;
-      cursor: pointer;
-      font-weight: bold;
-      transition: color 0.3s;
-  }
-  
-  .margin-button:hover {
-      color: #2e7d32; /* Darker shade */
-      border: none; /* Remove square box on hover */
-  }
-/* Responsive Enhancements */
-
-@media (max-width: 1024px) {
-    .navbar a {
-        font-size: 0.9em;
-        margin-left: 15px;
-    }
-
-    .service-box {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .service {
-        width: 45%;
-    }
-
-    .event-card {
-        width: 90%;
-    }
-
-    .carousel-container {
-        width: 100%;
-    }
-
-    .family-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .family-section .left-section,
-    .family-section .right-section {
-        flex: 1;
-    }
+/* Photo Gallery Section */
+.photo-gallery-section {
+    text-align: start;
+    margin: 20px 0;
 }
 
+/* Container adjustments */
+.container {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align images to the left */
+    justify-content: flex-start; /* Move images closer to the left */
+    padding-left: 20px; /* Add a small padding from the container's left edge */
+}
+
+/* Card styling */
+.card {
+    position: relative; /* Make position relative for better alignment */
+    width: 60%;
+    height: 100%;
+    margin: 10px 0; /* Add some vertical spacing between images */
+    cursor: pointer;
+    border: 5px solid #ccc; /* Add a border around each card */
+    border-radius: 10px; /* Optional: Rounded corners */
+    transition: transform 0.4s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #4CAF50; /* Change border color on hover for effect */
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+/* Image styling */
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Match border-radius with the card */
+    object-fit: cover;
+}
+
+.cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Carousel Transitions */
+#item-1:checked ~ .cards #photo-5,
+#item-2:checked ~ .cards #photo-1,
+#item-3:checked ~ .cards #photo-2,
+#item-4:checked ~ .cards #photo-3,
+#item-5:checked ~ .cards #photo-4 {
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #photo-2,
+#item-2:checked ~ .cards #photo-3,
+#item-3:checked ~ .cards #photo-4,
+#item-4:checked ~ .cards #photo-5,
+#item-5:checked ~ .cards #photo-1 {
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #photo-1,
+#item-2:checked ~ .cards #photo-2,
+#item-3:checked ~ .cards #photo-3,
+#item-4:checked ~ .cards #photo-4,
+#item-5:checked ~ .cards #photo-5 {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+ z-index: 1;
+}
+
+  
+  
+ .family-section {
+    padding: 40px 20px;
+    background-image: url('https://media.istockphoto.com/id/1407063872/vector/modern-abstract-background-with-black-gradient-abstract-black-business-background.jpg?s=612x612&w=0&k=20&c=6QftyGArm3LTpQsLw29DpZ9ZB42HMNK-wboAWyFZvto=');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Ensure text is visible on the dark background */
+    border-radius: 10px;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the sections */
+}
+
+.family-section .left-section {
+    flex: 1; /* Take 1 part of the total width */
+    text-align: left; /* Align heading to the left */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.family-section h2 {
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+text-align: center;
+}
+
+.family-section .right-section {
+    flex: 2; /* Take 2 parts of the total width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.family-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.family-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow for more attraction */
+    object-fit: cover;
+}
+.member-details {
+    text-align: left;
+}
+
+.member-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #4CAF50;
+font-family: 'Playfair Display', serif;
+}
+
+.member-details h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.member-details p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #dde7d3;
+}
+
+
+.margin-button {
+    background-color: transparent;
+    color: #4CAF50;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.margin-button:hover {
+    color: #2e7d32; /* Darker shade */
+    border: none; /* Remove square box on hover */
+}
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .navbar {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .empowerment-section img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .service {
-        width: 100%;
-    }
-
-    .registration-section {
-        max-width: 90%;
-    }
-
-    .carousel-container {
-        width: 100%;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
+  .slider {
+    width: 100%;
+    margin: 0 10px;
+  }
+  .slides img {
+    width: 100%;
+    height: auto;
+  }
+  .prev, .next {
+    font-size: 1.5em;
+  }
 }
-
-@media (max-width: 480px) {
-    body {
-        font-size: 0.9em;
-    }
-
-    .navbar a {
-        font-size: 0.8em;
-    }
-
-    .logo h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .empowerment-section {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .service {
-        width: 100%;
-    }
+@media (max-width: 768px) {
+  .family-section {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  .family-section .left-section,
+  .family-section .right-section {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .family-member img {
+    width: 100px;
+    height: 100px;
+  }
+  .member-details h3, .member-details h4 {
+    font-size: 1em;
+  }
 }
 
 /*volunter button*/
