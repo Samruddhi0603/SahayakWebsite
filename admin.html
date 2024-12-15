@@ -502,10 +502,7 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
     margin-top: 10px;
 }
 
- 
-
-
-	    
+/* Container for the form */
     </style>
 </head>
 
@@ -758,37 +755,41 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
 
 function calculateTotalAmount() {
     let totalDonations = 0;
-
     let totalExpenses = 0;
 
     // Fetch total donations
-    db.collection("donations").get()
+    const donationsPromise = db.collection("donations").get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                totalDonations += doc.data().amount;
+                totalDonations += doc.data().amount || 0; // Default to 0 if amount is missing
             });
+        });
 
-            // Fetch total expenses
-            db.collection("expenses").get()
-                .then(expenseSnapshot => {
-                    expenseSnapshot.forEach(doc => {
-                        totalExpenses += doc.data().amount;
-                    });
+    // Fetch total expenses
+    const expensesPromise = db.collection("expenses").get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                totalExpenses += doc.data().amount || 0; // Default to 0 if amount is missing
+            });
+        });
 
-                    // Calculate total amount
-                    const totalAmount = totalDonations - totalExpenses;
-                    totalAmountValue.textContent = '₹' + totalAmount.toFixed(2);
-                })
-                .catch(err => {
-                    console.error("Error fetching expenses:", err);
-                    totalAmountValue.textContent = "Failed to calculate.";
-                });
+    // Wait for both promises to complete
+    Promise.all([donationsPromise, expensesPromise])
+        .then(() => {
+            const totalAmount = totalDonations - totalExpenses;
+            totalAmountValue.textContent = '₹' + totalAmount.toFixed(2);
+
+            // Display alert if funds are low
+            if (totalAmount <= 1000) {
+                displayFundsAlert();
+            }
         })
         .catch(err => {
-            console.error("Error fetching donations:", err);
+            console.error("Error calculating total amount:", err);
             totalAmountValue.textContent = "Failed to calculate.";
         });
 }
+
 
 // Call the function after fetching total expenses
 calculateTotalAmount();
