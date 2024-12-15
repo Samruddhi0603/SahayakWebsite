@@ -502,6 +502,127 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
     margin-top: 10px;
 }
 
+
+
+
+
+
+
+/* Default Layout (For laptops and larger screens) */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px; /* Space between sections */
+}
+
+.left-section {
+    flex: 0 0 20%; /* Fixed width for the left section */
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.graph-container {
+    flex: 2; /* Graph container takes up more space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.right-section {
+    flex: 1; /* Form section takes proportional space */
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Layout for Tablets and Mobiles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 20px; /* Adjust spacing between sections */
+    }
+
+    .left-section,
+    .graph-container,
+    .right-section {
+        flex: 1 1 100%; /* Make all sections full width */
+        max-width: 100%; /* Ensure sections don't exceed container width */
+    }
+
+    .graph-container {
+        margin: 0 auto; /* Center align the graph container */
+        padding: 15px;
+    }
+
+    .box {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+
+/* Responsive Layout for Mobile Phones */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .container {
+        gap: 15px;
+    }
+
+    .left-section,
+    .graph-container,
+    .right-section {
+        flex: 1 1 100%; /* Stack and take full width */
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .box {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto; /* Ensure the graph scales properly */
+    }
+
+    button {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    #expenseForm input,
+    #expenseForm textarea,
+    #expenseForm button {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+
+
+
+	    
 /* Container for the form */
     </style>
 </head>
