@@ -737,7 +737,7 @@ textarea {
 
 
     <script>
-        // Firebase configuration
+               // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBv3vKMih_ia_eADyo70cDHIrNTVBA-DM8",
             authDomain: "sahayak-sss1234.firebaseapp.com",
@@ -1008,13 +1008,15 @@ function generateAllLabels(timePeriod, donationsData, expensesData) {
         ...Object.keys(expensesData),
     ]);
 
-    // If the time period is monthly, generate labels for all months
+    // If the time period is monthly, ensure all months are covered
     if (timePeriod === "monthly") {
         const startDate = new Date();
+        startDate.setFullYear(2023); // Start year (you can adjust this as needed)
         startDate.setMonth(0); // January
         startDate.setDate(1);
 
         const endDate = new Date();
+        endDate.setFullYear(new Date().getFullYear()); // Current year
         endDate.setMonth(11); // December
         endDate.setDate(31);
 
@@ -1025,8 +1027,14 @@ function generateAllLabels(timePeriod, donationsData, expensesData) {
         }
     }
 
-    return Array.from(uniqueLabels).sort();
+    // Sort the labels in ascending order
+    return Array.from(uniqueLabels).sort((a, b) => {
+        const [yearA, monthA] = a.split("-").map(Number);
+        const [yearB, monthB] = b.split("-").map(Number);
+        return yearA === yearB ? monthA - monthB : yearA - yearB;
+    });
 }
+
 
 // Function to render the chart
 function displayChart(labels, expensesData, donationsData, graphType) {
