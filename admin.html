@@ -618,6 +618,54 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
 
 
 
+@media (max-width: 768px) {
+    /* Event Management Form - Tablet and Mobile Adjustments */
+    #eventForm {
+        grid-template-columns: 1fr; /* Make all inputs stack vertically */
+        gap: 15px; /* Add spacing between rows */
+        width: 100%; /* Ensure form takes full width */
+        margin: 0 auto; /* Center the form */
+    }
+
+    #eventForm div {
+        width: 100%; /* Ensure form fields take full width */
+    }
+
+    #eventForm label {
+        font-size: 0.9em; /* Slightly smaller labels */
+    }
+
+    #eventForm input,
+    #eventForm textarea,
+    #eventForm button {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+        padding: 8px; /* Reduce padding */
+        width: 100%; /* Ensure inputs fill container width */
+    }
+
+    .form-box {
+        width: 100%; /* Remove fixed width */
+        padding: 10px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    #eventForm {
+        padding: 10px; /* Adjust padding for smaller screens */
+        gap: 10px; /* Smaller spacing between rows */
+    }
+
+    #eventForm input,
+    #eventForm textarea,
+    #eventForm button {
+        font-size: 0.85em; /* Slightly smaller font size for mobile */
+        padding: 6px; /* Reduce padding for smaller devices */
+    }
+
+    .form-box {
+        padding: 8px; /* Less padding for better fit */
+    }
+}
 
 
 
