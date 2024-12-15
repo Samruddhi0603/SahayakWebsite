@@ -501,8 +501,83 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
     text-align: center;
     margin-top: 10px;
 }
+/* General responsiveness for tablets */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
-/* Container for the form */
+    .left-section,
+    .right-section,
+    .graph-container {
+        flex: 1 1 100%; /* Each section takes full width */
+        max-width: 100%;
+    }
+
+    .left-section,
+    .right-section {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+}
+
+/* Specific adjustments for mobile devices */
+@media (max-width: 480px) {
+    .navbar-heading {
+        font-size: 1.2em;
+    }
+
+    .navbar-menu a {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .graph-container {
+        padding: 10px;
+    }
+
+    .left-section,
+    .right-section {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #expenseForm {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
+	    
     </style>
 </head>
 
