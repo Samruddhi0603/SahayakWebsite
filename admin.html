@@ -502,176 +502,88 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
     margin-top: 10px;
 }
 
+/* Container for the form */
 
 
 
 
 
-
-/* Default Layout (For laptops and larger screens) */
-.container {
+/* Base layout (default for desktops) */
+.container, .new-container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 30px; /* Space between sections */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
-.left-section {
-    flex: 0 0 20%; /* Fixed width for the left section */
-    max-width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.graph-container {
-    flex: 2; /* Graph container takes up more space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.right-section {
-    flex: 1; /* Form section takes proportional space */
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Responsive Layout for Tablets and Mobiles */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sections vertically */
-        gap: 20px; /* Adjust spacing between sections */
-    }
-
-    .left-section,
-    .graph-container,
-    .right-section {
-        flex: 1 1 100%; /* Make all sections full width */
-        max-width: 100%; /* Ensure sections don't exceed container width */
-    }
-
-    .graph-container {
-        margin: 0 auto; /* Center align the graph container */
-        padding: 15px;
-    }
-
-    .box {
-        padding: 15px;
-        font-size: 1em;
-    }
-}
-
-/* Responsive Layout for Mobile Phones */
-@media (max-width: 480px) {
-    .navbar {
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .container, .new-container {
         flex-direction: column;
+        align-items: center; /* Center content for smaller screens */
+    }
+
+    .left-section, .right-section, .graph-container {
+        width: 100%; /* Make sections take full width */
+        margin-bottom: 20px; /* Add spacing between stacked sections */
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduce heading size */
+    }
+
+    .box, .form-box {
+        padding: 10px; /* Reduce padding inside boxes */
+    }
+
+    .nav-buttons {
+        justify-content: center; /* Center navigation buttons */
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navbar items */
         align-items: center;
     }
 
     .navbar-menu {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%;
         text-align: center;
     }
 
+    .navbar-menu li {
+        margin: 10px 0; /* Add spacing between items */
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
     .container {
-        gap: 15px;
+        gap: 15px; /* Reduce spacing */
     }
 
-    .left-section,
-    .graph-container,
-    .right-section {
-        flex: 1 1 100%; /* Stack and take full width */
-        margin: 0 auto;
-        padding: 10px;
-    }
-
-    .box {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    canvas {
-        max-width: 100%;
-        height: auto; /* Ensure the graph scales properly */
-    }
-
-    button {
-        padding: 8px 10px;
-        font-size: 0.9em;
-    }
-
-    #expenseForm input,
-    #expenseForm textarea,
-    #expenseForm button {
-        width: 100%;
-        font-size: 0.9em;
+    .left-section, .right-section, .graph-container {
+        width: 90%; /* Allow some side spacing */
     }
 }
 
-
-
-
-@media (max-width: 768px) {
-    /* Event Management Form - Tablet and Mobile Adjustments */
-    #eventForm {
-        grid-template-columns: 1fr; /* Make all inputs stack vertically */
-        gap: 15px; /* Add spacing between rows */
-        width: 100%; /* Ensure form takes full width */
-        margin: 0 auto; /* Center the form */
-    }
-
-    #eventForm div {
-        width: 100%; /* Ensure form fields take full width */
-    }
-
-    #eventForm label {
-        font-size: 0.9em; /* Slightly smaller labels */
-    }
-
-    #eventForm input,
-    #eventForm textarea,
-    #eventForm button {
-        font-size: 0.9em; /* Adjust font size for smaller screens */
-        padding: 8px; /* Reduce padding */
-        width: 100%; /* Ensure inputs fill container width */
-    }
-
-    .form-box {
-        width: 100%; /* Remove fixed width */
-        padding: 10px; /* Adjust padding */
-    }
+/* Fine-tuning smaller elements */
+button, input, textarea {
+    font-size: 0.9em; /* Adjust input and button sizes for smaller screens */
 }
 
-@media (max-width: 480px) {
-    #eventForm {
-        padding: 10px; /* Adjust padding for smaller screens */
-        gap: 10px; /* Smaller spacing between rows */
-    }
-
-    #eventForm input,
-    #eventForm textarea,
-    #eventForm button {
-        font-size: 0.85em; /* Slightly smaller font size for mobile */
-        padding: 6px; /* Reduce padding for smaller devices */
-    }
-
-    .form-box {
-        padding: 8px; /* Less padding for better fit */
-    }
+textarea {
+    resize: none; /* Disable resizing for mobile */
+    font-size: 0.9em;
 }
 
-
-
-
-	    
-/* Container for the form */
     </style>
 </head>
 
@@ -749,19 +661,38 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
     </div>
 </div>
 <h1 id="eventAnalysis">Event Analysis</h1>
+
+
 <div class="new-container">
-    <!-- Left Section -->
+    <!-- Right Section (Upcoming Agenda and Events) -->
+    <div class="right-section">
+        <h1>Upcoming Agenda</h1>
+        <div class="carousel-container">
+            <div id="agendaCarousel" class="event-carousel"></div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button left" onclick="scrollCarousel('agenda', 1)">&#8249;</button>
+            <button class="nav-button right" onclick="scrollCarousel('agenda', -1)">&#8250;</button>
+        </div>
 
+        <h1>Events</h1>
+        <div class="carousel-container">
+            <div id="eventCarousel" class="event-carousel"></div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button left" onclick="scrollCarousel('events', 1)">&#8249;</button>
+            <button class="nav-button right" onclick="scrollCarousel('events', -1)">&#8250;</button>
+        </div>
+    </div>
+
+    <!-- Left Section (Event Management Form) -->
     <div class="left-section">
-        <!-- Place your content for the left section here -->
-	
-
-    <div id="expenseForm" style="flex: 1; background: linear-gradient(135deg, #fc25d861, #6a11cb); padding: 1px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); color: #fff; font-size: 1.2em; margin-left: 1px; width: 100%;"> <!-- Increased width -->
-        <h2>Add New Event</h2>
-        <div class="form-container">
-    <div class="form-box">
-        <h2>Event Management</h2>
-        <form id="eventForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+        <div id="expenseForm" style="...">
+            <h2>Add New Event</h2>
+            <div class="form-container">
+                <div class="form-box">
+                    <h2>Event Management</h2>
+                    <form id="eventForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
             <label for="eventName">Event Name</label>
             <input type="text" id="eventName" name="eventName" required>
             
@@ -782,41 +713,10 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
             
             <button type="submit">Submit</button>
         </form>
-    </div>
-</div>
-
-        <p id="eventAlertMessage" style="display: none; font-size: 1.5em; text-align: center; font-weight: bold; margin-top: 10px; color: #FFFFFF; background-color: rgba(76, 175, 80, 0.1); padding: 10px; border-radius: 5px;">
-        </p>
-    </div>
-</div>
-
-    
-
-    <!-- Right Section -->
-<div class="right-section">
-    <h1>Upcoming Agenda</h1>
-    <div class="carousel-container">
-        <div id="agendaCarousel" class="event-carousel">
-            <!-- Agenda cards will be dynamically injected here -->
+                </div>
+            </div>
         </div>
     </div>
-    <div class="nav-buttons">
-        <button class="nav-button left" onclick="scrollCarousel('agenda', 1)">&#8249;</button>
-        <button class="nav-button right" onclick="scrollCarousel('agenda', -1)">&#8250;</button>
-    </div>
-
-    <h1>Events</h1>
-    <div class="carousel-container">
-        <div id="eventCarousel" class="event-carousel">
-            <!-- Event cards will be dynamically injected here -->
-        </div>
-    </div>
-    <div class="nav-buttons">
-        <button class="nav-button left" onclick="scrollCarousel('events', 1)">&#8249;</button>
-        <button class="nav-button right" onclick="scrollCarousel('events', -1)">&#8250;</button>
-    </div>
-</div>
-
 </div>
               
 
@@ -996,34 +896,52 @@ function displayChartWithDefaults() {
 }
 
 // Function to display chart based on selected values
-function displayChart(labels, data, graphType) {
-    const ctx = expenseChart.getContext("2d");
+function displayChart(labels, expensesData, donationsData, graphType) {
+    const ctx = document.getElementById("expenseChart").getContext("2d");
 
     if (window.chart) {
-        window.chart.destroy(); // Destroy the previous chart if any
+        window.chart.destroy(); // Destroy any existing chart
     }
 
     window.chart = new Chart(ctx, {
-        type: graphType, // Bar chart, Pie chart, or Line chart
+        type: graphType,
         data: {
             labels: labels,
-            datasets: [{
-                label: 'Expenses',
-                data: data,
-                backgroundColor: graphType === "bar" ? 'rgba(75, 192, 192, 0.2)' : 'rgba(153, 102, 255, 0.2)',
-                borderColor: graphType === "bar" ? 'rgba(75, 192, 192, 1)' : 'rgba(153, 102, 255, 1)',
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: "Expenses",
+                    data: expensesData,
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 1,
+                },
+                {
+                    label: "Donations",
+                    data: donationsData,
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1,
+                },
+            ],
         },
         options: {
             responsive: true,
-            scales: graphType === 'bar' ? {
+            scales: {
                 y: {
-                    beginAtZero: true
-                }
-            } : {}
-        }
+                    beginAtZero: true,
+                },
+            },
+        },
     });
+}
+
+// Helper to format dates based on the time period
+function formatDateByTimePeriod(date, timePeriod) {
+    return timePeriod === "monthly"
+        ? `${date.getFullYear()}-${date.getMonth() + 1}`
+        : timePeriod === "quarterly"
+        ? `Q${Math.floor(date.getMonth() / 3) + 1}-${date.getFullYear()}`
+        : date.getFullYear();
 }
 
 // Helper function to format dates based on time period
@@ -1070,19 +988,44 @@ function updateChart() {
                 }
             });
 
-            // Combine data
-            const labels = Array.from(
-                new Set([...Object.keys(expensesData), ...Object.keys(donationsData)])
-            ).sort();
-            const expensesValues = labels.map((label) => expensesData[label] || 0);
-            const donationsValues = labels.map((label) => donationsData[label] || 0);
+            // Generate full labels and align data
+            const allLabels = generateAllLabels(timePeriod, donationsData, expensesData);
+            const expensesValues = allLabels.map((label) => expensesData[label] || 0);
+            const donationsValues = allLabels.map((label) => donationsData[label] || 0);
 
-            console.log({ labels, expensesValues, donationsValues });
+            console.log({ labels: allLabels, expensesValues, donationsValues });
 
-            // Call displayChart function
-            displayChart(labels, expensesValues, donationsValues, graphType);
+            // Display the chart
+            displayChart(allLabels, expensesValues, donationsValues, graphType);
         })
         .catch((error) => console.error("Error updating chart:", error));
+}
+
+// Helper to generate labels for all months or periods
+function generateAllLabels(timePeriod, donationsData, expensesData) {
+    const uniqueLabels = new Set([
+        ...Object.keys(donationsData),
+        ...Object.keys(expensesData),
+    ]);
+
+    // If the time period is monthly, generate labels for all months
+    if (timePeriod === "monthly") {
+        const startDate = new Date();
+        startDate.setMonth(0); // January
+        startDate.setDate(1);
+
+        const endDate = new Date();
+        endDate.setMonth(11); // December
+        endDate.setDate(31);
+
+        while (startDate <= endDate) {
+            const label = `${startDate.getFullYear()}-${startDate.getMonth() + 1}`;
+            uniqueLabels.add(label);
+            startDate.setMonth(startDate.getMonth() + 1);
+        }
+    }
+
+    return Array.from(uniqueLabels).sort();
 }
 
 // Function to render the chart
@@ -1124,6 +1067,7 @@ function displayChart(labels, expensesData, donationsData, graphType) {
         },
     });
 }
+
 
 // Initialize event listeners for radio buttons
 window.onload = function () {
