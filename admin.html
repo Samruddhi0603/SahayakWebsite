@@ -135,7 +135,7 @@ canvas {
 }
 #expenseForm {
     flex: 1;
-    background: linear-gradient(135deg, #fc25d861, #6a11cb);
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -222,7 +222,7 @@ canvas {
     padding: 5px; /* Reduced padding for smaller height */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 	width: 100%;
-	width:350px;
+	width:400px;
 }
 
 /* Title for the form */
@@ -503,87 +503,6 @@ background: linear-gradient(135deg, #fc25d861, #6a11cb);
 }
 
 /* Container for the form */
-
-
-
-
-
-/* Base layout (default for desktops) */
-.container, .new-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 1024px) {
-    .container, .new-container {
-        flex-direction: column;
-        align-items: center; /* Center content for smaller screens */
-    }
-
-    .left-section, .right-section, .graph-container {
-        width: 100%; /* Make sections take full width */
-        margin-bottom: 20px; /* Add spacing between stacked sections */
-    }
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-    body {
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    h1 {
-        font-size: 1.5em; /* Reduce heading size */
-    }
-
-    .box, .form-box {
-        padding: 10px; /* Reduce padding inside boxes */
-    }
-
-    .nav-buttons {
-        justify-content: center; /* Center navigation buttons */
-    }
-
-    .navbar {
-        flex-direction: column; /* Stack navbar items */
-        align-items: center;
-    }
-
-    .navbar-menu {
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar-menu li {
-        margin: 10px 0; /* Add spacing between items */
-    }
-}
-
-/* Tablet adjustments */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .container {
-        gap: 15px; /* Reduce spacing */
-    }
-
-    .left-section, .right-section, .graph-container {
-        width: 90%; /* Allow some side spacing */
-    }
-}
-
-/* Fine-tuning smaller elements */
-button, input, textarea {
-    font-size: 0.9em; /* Adjust input and button sizes for smaller screens */
-}
-
-textarea {
-    resize: none; /* Disable resizing for mobile */
-    font-size: 0.9em;
-}
-
     </style>
 </head>
 
@@ -661,38 +580,19 @@ textarea {
     </div>
 </div>
 <h1 id="eventAnalysis">Event Analysis</h1>
-
-
 <div class="new-container">
-    <!-- Right Section (Upcoming Agenda and Events) -->
-    <div class="right-section">
-        <h1>Upcoming Agenda</h1>
-        <div class="carousel-container">
-            <div id="agendaCarousel" class="event-carousel"></div>
-        </div>
-        <div class="nav-buttons">
-            <button class="nav-button left" onclick="scrollCarousel('agenda', 1)">&#8249;</button>
-            <button class="nav-button right" onclick="scrollCarousel('agenda', -1)">&#8250;</button>
-        </div>
+    <!-- Left Section -->
 
-        <h1>Events</h1>
-        <div class="carousel-container">
-            <div id="eventCarousel" class="event-carousel"></div>
-        </div>
-        <div class="nav-buttons">
-            <button class="nav-button left" onclick="scrollCarousel('events', 1)">&#8249;</button>
-            <button class="nav-button right" onclick="scrollCarousel('events', -1)">&#8250;</button>
-        </div>
-    </div>
-
-    <!-- Left Section (Event Management Form) -->
     <div class="left-section">
-        <div id="expenseForm" style="margin: 0px;">
-            <h2>Add New Event</h2>
-            <div class="form-container">
-                <div class="form-box">
-                    <h2>Event Management</h2>
-                    <form id="eventForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+        <!-- Place your content for the left section here -->
+	
+
+    <div id="expenseForm" style="flex: 1; background: linear-gradient(135deg, #fc25d861, #6a11cb); padding: 1px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); color: #fff; font-size: 1.2em; margin-left: 1px; width: 100%;"> <!-- Increased width -->
+        <h2>Add New Event</h2>
+        <div class="form-container">
+    <div class="form-box">
+        <h2>Event Management</h2>
+        <form id="eventForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
             <label for="eventName">Event Name</label>
             <input type="text" id="eventName" name="eventName" required>
             
@@ -712,11 +612,42 @@ textarea {
             <input type="url" id="map_link" name="map_link">
             
             <button type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
+        </form>
+    </div>
+</div>
+
+        <p id="eventAlertMessage" style="display: none; font-size: 1.5em; text-align: center; font-weight: bold; margin-top: 10px; color: #FFFFFF; background-color: rgba(76, 175, 80, 0.1); padding: 10px; border-radius: 5px;">
+        </p>
+    </div>
+</div>
+
+    
+
+    <!-- Right Section -->
+<div class="right-section">
+    <h1>Upcoming Agenda</h1>
+    <div class="carousel-container">
+        <div id="agendaCarousel" class="event-carousel">
+            <!-- Agenda cards will be dynamically injected here -->
         </div>
     </div>
+    <div class="nav-buttons">
+        <button class="nav-button left" onclick="scrollCarousel('agenda', 1)">&#8249;</button>
+        <button class="nav-button right" onclick="scrollCarousel('agenda', -1)">&#8250;</button>
+    </div>
+
+    <h1>Events</h1>
+    <div class="carousel-container">
+        <div id="eventCarousel" class="event-carousel">
+            <!-- Event cards will be dynamically injected here -->
+        </div>
+    </div>
+    <div class="nav-buttons">
+        <button class="nav-button left" onclick="scrollCarousel('events', 1)">&#8249;</button>
+        <button class="nav-button right" onclick="scrollCarousel('events', -1)">&#8250;</button>
+    </div>
+</div>
+
 </div>
               
 
@@ -737,7 +668,7 @@ textarea {
 
 
     <script>
-               // Firebase configuration
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBv3vKMih_ia_eADyo70cDHIrNTVBA-DM8",
             authDomain: "sahayak-sss1234.firebaseapp.com",
@@ -1008,15 +939,13 @@ function generateAllLabels(timePeriod, donationsData, expensesData) {
         ...Object.keys(expensesData),
     ]);
 
-    // If the time period is monthly, ensure all months are covered
+    // If the time period is monthly, generate labels for all months
     if (timePeriod === "monthly") {
         const startDate = new Date();
-        startDate.setFullYear(2023); // Start year (you can adjust this as needed)
         startDate.setMonth(0); // January
         startDate.setDate(1);
 
         const endDate = new Date();
-        endDate.setFullYear(new Date().getFullYear()); // Current year
         endDate.setMonth(11); // December
         endDate.setDate(31);
 
@@ -1027,14 +956,8 @@ function generateAllLabels(timePeriod, donationsData, expensesData) {
         }
     }
 
-    // Sort the labels in ascending order
-    return Array.from(uniqueLabels).sort((a, b) => {
-        const [yearA, monthA] = a.split("-").map(Number);
-        const [yearB, monthB] = b.split("-").map(Number);
-        return yearA === yearB ? monthA - monthB : yearA - yearB;
-    });
+    return Array.from(uniqueLabels).sort();
 }
-
 
 // Function to render the chart
 function displayChart(labels, expensesData, donationsData, graphType) {
